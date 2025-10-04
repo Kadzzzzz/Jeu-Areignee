@@ -1,18 +1,30 @@
-## Getting Started
+# Jeu de l'Araignée
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Projet Java développé dans le cadre du BE du cours d'approfondissement "Applications concurrentes, mobiles et réparties en Java" à Centrale Lyon.
 
-## Folder Structure
+## Description
 
-The workspace contains two folders by default, where:
+Jeu de stratégie à deux joueurs sur grille 3×3. Chaque joueur dispose de 3 pions et tente d'aligner ses pions avant son adversaire.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+**Deux phases de jeu :**
+- **Placement** : Les joueurs posent alternativement leurs 3 pions
+- **Déplacement** : Les joueurs déplacent leurs pions vers des cases adjacentes
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Victoire par alignement de 3 pions sur une ligne ou colonne (diagonales exclues).
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Lancement
 
-## Dependency Management
+```bash
+javac *.java
+java Main
+```
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Architecture
+
+- **Modèle** : `Plateau`, `Joueur`, `Pion`, `Position`, `VictoireChecker`
+- **Contrôleur** : `JeuAraignee`
+- **Vue** : `InterfaceUtilisateur` (Java Swing)
+
+## Auteur
+
+Jeremy Luccioni - Centrale Lyon (2024)
