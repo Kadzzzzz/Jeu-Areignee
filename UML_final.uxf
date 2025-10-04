@@ -4,22 +4,23 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>816</x>
-      <y>0</y>
+      <x>680</x>
+      <y>8</y>
       <w>200</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>Main
 --
 --
-+main(args: String[]): void</panel_attributes>
++main(args: String[]): void
+bg=orange</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>248</x>
-      <y>344</y>
+      <x>112</x>
+      <y>352</y>
       <w>480</w>
       <h>272</h>
     </coordinates>
@@ -44,14 +45,15 @@
 -changerJoueur(): void
 -verifierChangementPhase(): void
 -validerCoupPlacement(position: Position): void
--validerCoupDeplacement(origine: Position, destination: Position): void</panel_attributes>
+-validerCoupDeplacement(origine: Position, destination: Position): void
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>248</x>
-      <y>720</y>
+      <x>112</x>
+      <y>728</y>
       <w>480</w>
       <h>104</h>
     </coordinates>
@@ -63,14 +65,15 @@
 -verifierLignes(plateau: Plateau, joueur: Joueur): boolean
 -verifierLigne(plateau: Plateau, joueur: Joueur, ligne: int): boolean
 -verifierColonnes(plateau: Plateau, joueur: Joueur): boolean
--verifierColonne(plateau: Plateau, joueur: Joueur, colonne: int): boolean</panel_attributes>
+-verifierColonne(plateau: Plateau, joueur: Joueur, colonne: int): boolean
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>240</x>
-      <y>192</y>
+      <x>104</x>
+      <y>200</y>
       <w>160</w>
       <h>64</h>
     </coordinates>
@@ -79,14 +82,14 @@ Phase
 --
 PLACEMENT
 DEPLACEMENT
-bg=yellow</panel_attributes>
+bg=cyan</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>792</x>
-      <y>488</y>
+      <x>656</x>
+      <y>496</y>
       <w>320</w>
       <h>128</h>
     </coordinates>
@@ -99,14 +102,15 @@ bg=yellow</panel_attributes>
 +placerPion(pion: Pion, position: Position): void
 +retirerPion(position: Position): Pion
 +obtenirPion(position: Position): Pion
--validerPosition(position: Position): void</panel_attributes>
+-validerPosition(position: Position): void
+bg=cyan</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1144</x>
-      <y>592</y>
+      <x>1008</x>
+      <y>600</y>
       <w>280</w>
       <h>200</h>
     </coordinates>
@@ -132,8 +136,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>800</x>
-      <y>680</y>
+      <x>664</x>
+      <y>688</y>
       <w>320</w>
       <h>232</h>
     </coordinates>
@@ -162,8 +166,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1128</x>
-      <y>312</y>
+      <x>992</x>
+      <y>320</y>
       <w>280</w>
       <h>144</h>
     </coordinates>
@@ -185,8 +189,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>736</x>
-      <y>104</y>
+      <x>600</x>
+      <y>112</y>
       <w>360</w>
       <h>328</h>
     </coordinates>
@@ -222,8 +226,8 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>904</x>
-      <y>40</y>
+      <x>768</x>
+      <y>48</y>
       <w>48</w>
       <h>80</h>
     </coordinates>
@@ -234,8 +238,8 @@ crée</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>464</x>
-      <y>232</y>
+      <x>328</x>
+      <y>240</y>
       <w>288</w>
       <h>128</h>
     </coordinates>
@@ -246,8 +250,8 @@ utilise</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1088</x>
-      <y>240</y>
+      <x>952</x>
+      <y>248</y>
       <w>232</w>
       <h>88</h>
     </coordinates>
@@ -258,8 +262,8 @@ utilise</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>304</x>
-      <y>248</y>
+      <x>168</x>
+      <y>256</y>
       <w>56</w>
       <h>112</h>
     </coordinates>
@@ -270,8 +274,8 @@ utilise</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>464</x>
-      <y>608</y>
+      <x>328</x>
+      <y>616</y>
       <w>64</w>
       <h>128</h>
     </coordinates>
@@ -282,8 +286,8 @@ contient</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>472</x>
-      <y>816</y>
+      <x>336</x>
+      <y>824</y>
       <w>512</w>
       <h>136</h>
     </coordinates>
@@ -294,8 +298,8 @@ vérifie</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1112</x>
-      <y>784</y>
+      <x>976</x>
+      <y>792</y>
       <w>216</w>
       <h>56</h>
     </coordinates>
@@ -307,8 +311,8 @@ m2=3</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1272</x>
-      <y>448</y>
+      <x>1136</x>
+      <y>456</y>
       <w>88</w>
       <h>160</h>
     </coordinates>
@@ -319,8 +323,8 @@ positionné à</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>952</x>
-      <y>640</y>
+      <x>816</x>
+      <y>648</y>
       <w>208</w>
       <h>56</h>
     </coordinates>
@@ -331,8 +335,8 @@ appartient à</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>720</x>
-      <y>552</y>
+      <x>584</x>
+      <y>560</y>
       <w>88</w>
       <h>248</h>
     </coordinates>
@@ -343,8 +347,8 @@ vérifie</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>720</x>
-      <y>448</y>
+      <x>584</x>
+      <y>456</y>
       <w>192</w>
       <h>56</h>
     </coordinates>
@@ -355,8 +359,8 @@ contient</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1104</x>
-      <y>536</y>
+      <x>968</x>
+      <y>544</y>
       <w>144</w>
       <h>72</h>
     </coordinates>
@@ -369,8 +373,8 @@ m2=0..9
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>656</x>
-      <y>608</y>
+      <x>520</x>
+      <y>616</y>
       <w>160</w>
       <h>120</h>
     </coordinates>
