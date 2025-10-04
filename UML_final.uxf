@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>816</x>
+      <y>0</y>
+      <w>200</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Main
+--
+--
++main(args: String[]): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>248</x>
+      <y>344</y>
+      <w>480</w>
+      <h>272</h>
+    </coordinates>
+    <panel_attributes>JeuAraignee
+--
+-plateau: Plateau
+-joueur1: Joueur
+-joueur2: Joueur
+-victoireChecker: VictoireChecker
+-joueurActuel: Joueur
+-phaseActuelle: Phase
+-partieTerminee: boolean
+--
++JeuAraignee(nomJoueur1: String, nomJoueur2: String)
++placerPion(position: Position): boolean
++deplacerPion(origine: Position, destination: Position): boolean
++getPlateau(): Plateau
++getJoueurActuel(): Joueur
++getPhaseActuelle(): Phase
++estPartieTerminee(): boolean
+-creerPionsPourJoueur(joueur: Joueur): void
+-changerJoueur(): void
+-verifierChangementPhase(): void
+-validerCoupPlacement(position: Position): void
+-validerCoupDeplacement(origine: Position, destination: Position): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>248</x>
+      <y>720</y>
+      <w>480</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>VictoireChecker
+--
+--
++VictoireChecker()
++aGagne(plateau: Plateau, joueur: Joueur): boolean
+-verifierLignes(plateau: Plateau, joueur: Joueur): boolean
+-verifierLigne(plateau: Plateau, joueur: Joueur, ligne: int): boolean
+-verifierColonnes(plateau: Plateau, joueur: Joueur): boolean
+-verifierColonne(plateau: Plateau, joueur: Joueur, colonne: int): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>240</x>
+      <y>192</y>
+      <w>160</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+Phase
+--
+PLACEMENT
+DEPLACEMENT
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>792</x>
+      <y>488</y>
+      <w>320</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Plateau
+--
+-grille: Pion[][]
+--
++Plateau()
++estLibre(position: Position): boolean
++placerPion(pion: Pion, position: Position): void
++retirerPion(position: Position): Pion
++obtenirPion(position: Position): Pion
+-validerPosition(position: Position): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1144</x>
+      <y>592</y>
+      <w>280</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Pion
+--
+-proprietaire: Joueur
+-position: Position
+-estSurPlateau: boolean
+--
++Pion(proprietaire: Joueur)
++getProprietaire(): Joueur
++getPosition(): Position
++estSurPlateau(): boolean
++setPosition(nouvellePosition: Position): void
++retirerDuPlateau(): void
++appartientA(joueur: Joueur): boolean
++equals(obj: Object): boolean
++hashCode(): int
++toString(): String
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>680</y>
+      <w>320</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>Joueur
+--
+-MAX_PIONS: int = 3
+-nom: String
+-couleur: String
+-pions: List&lt;Pion&gt;
+-nbPionsPlaces: int
+--
++Joueur(nom: String, couleur: String)
++getNom(): String
++getCouleur(): String
++getPions(): List&lt;Pion&gt;
++getNbPionsPlaces(): int
++ajouterPion(pion: Pion): void
++incrementerPionsPlaces(): void
++estTousPlaces(): boolean
++equals(obj: Object): boolean
++hashCode(): int
++toString(): String
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1128</x>
+      <y>312</y>
+      <w>280</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Position
+--
+-x: int
+-y: int
+--
++Position(x: int, y: int)
++getX(): int
++getY(): int
++estAdjacente(autre: Position): boolean
++equals(obj: Object): boolean
++hashCode(): int
++toString(): String
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>736</x>
+      <y>104</y>
+      <w>360</w>
+      <h>328</h>
+    </coordinates>
+    <panel_attributes>InterfaceUtilisateur
+--
+-boutonsCases: JButton[][]
+-champNomRouge: JTextField
+-champNomBleu: JTextField
+-labelTour: JLabel
+-jeu: JeuAraignee
+-positionSelectionnee: Position
+--
++InterfaceUtilisateur()
+-creerInterface(): void
+-creerPanneauNoms(): JPanel
+-creerLabelTour(): JLabel
+-creerGrille(): JPanel
+-creerPanneauBas(): JPanel
+-gererClicCase(x: int, y: int): void
+-gererClicPlacement(position: Position): void
+-gererClicDeplacement(position: Position): void
+-recommencer(): void
+-demarrerNouvellePartie(): void
+-rafraichirAffichage(): void
+-rafraichirGrille(): void
+-rafraichirLabelTour(): void
+-surlignerCase(x: int, y: int, couleur: Color): void
+-afficherErreur(message: String): void
+-afficherVictoire(): void
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>904</x>
+      <y>40</y>
+      <w>48</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..
+crée</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>464</x>
+      <y>232</y>
+      <w>288</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+utilise</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0;340.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1088</x>
+      <y>240</y>
+      <w>232</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..
+utilise</panel_attributes>
+    <additional_attributes>230.0;90.0;230.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>304</x>
+      <y>248</y>
+      <w>56</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+utilise</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>464</x>
+      <y>608</y>
+      <w>64</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+contient</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>472</x>
+      <y>816</y>
+      <w>512</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..
+vérifie</panel_attributes>
+    <additional_attributes>620.0;120.0;620.0;150.0;10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1112</x>
+      <y>784</y>
+      <w>216</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+contient
+m2=3</panel_attributes>
+    <additional_attributes>10.0;50.0;240.0;50.0;240.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1272</x>
+      <y>448</y>
+      <w>88</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+positionné à</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>952</x>
+      <y>640</y>
+      <w>208</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+appartient à</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0;240.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>552</y>
+      <w>88</w>
+      <h>248</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..
+vérifie</panel_attributes>
+    <additional_attributes>90.0;10.0;50.0;10.0;50.0;290.0;10.0;290.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>448</y>
+      <w>192</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+contient</panel_attributes>
+    <additional_attributes>10.0;20.0;220.0;20.0;220.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1104</x>
+      <y>536</y>
+      <w>144</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+stocke
+m2=0..9
+</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0;140.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>656</x>
+      <y>608</y>
+      <w>160</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+contient
+m2=2</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0;180.0;120.0</additional_attributes>
+  </element>
+</diagram>
