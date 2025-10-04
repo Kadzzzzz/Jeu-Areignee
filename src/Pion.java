@@ -3,17 +3,14 @@ public class Pion {
     private final Joueur proprietaire;
     private Position position;
     private boolean estSurPlateau;
-    private int nombreDeplacements;
 
     public Pion(Joueur proprietaire) {
         if (proprietaire == null) {
             throw new IllegalArgumentException("Le proprietaire ne peut pas être null");
         }
-        
         this.proprietaire = proprietaire;
         this.position = null;
         this.estSurPlateau = false;
-        this.nombreDeplacements = 0;
     }
 
     public Joueur getProprietaire() {
@@ -28,21 +25,12 @@ public class Pion {
         return estSurPlateau;
     }
 
-    public int getNombreDeplacements() {
-        return nombreDeplacements;
-    }
-
     public void setPosition(Position nouvellePosition) {
         if (nouvellePosition == null) {
             throw new IllegalArgumentException("La position ne peut pas être null lors du placement");
         }
-        Position anciennePosition = this.position;
         this.position = nouvellePosition;
         this.estSurPlateau = true;
-
-        if (anciennePosition != null) {
-            nombreDeplacements++;
-        }
     }
 
     public void retirerDuPlateau() {
@@ -51,26 +39,13 @@ public class Pion {
     }
 
     public boolean appartientA(Joueur joueur) {
-        if (joueur == null) {
-            return false;
-        }
-    return proprietaire.equals(joueur);
-    }
-
-    @Override
-    public String toString() {
-        return "Pion [proprietaire=" + proprietaire.getNom() + ", position=" + position + 
-               ", estSurPlateau=" + estSurPlateau + ", nombreDeplacements=" + nombreDeplacements + "]";
+        return joueur != null && proprietaire.equals(joueur);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
         Pion pion = (Pion) obj;
         return proprietaire.equals(pion.proprietaire) && 
                ((position == null && pion.position == null) || 
@@ -82,5 +57,11 @@ public class Pion {
         int result = proprietaire.hashCode();
         result = 31 * result + (position != null ? position.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Pion [proprietaire=" + proprietaire.getNom() + ", position=" + position + 
+               ", estSurPlateau=" + estSurPlateau + "]";
     }
 }

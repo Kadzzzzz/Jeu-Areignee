@@ -20,10 +20,14 @@ public class Position {
         return y;
     }
     
-    public boolean estValide() {
-        return x >= 0 && x <= 2 && y >= 0 && y <= 2;
-    }
-    
+    /**
+     * Vérifie si cette position est adjacente à une autre.
+     * Deux positions sont adjacentes si elles diffèrent d'exactement 1 case
+     * horizontalement OU verticalement (les diagonales ne sont PAS adjacentes).
+     * 
+     * @param autre l'autre position à comparer
+     * @return true si les positions sont adjacentes, false sinon
+     */
     public boolean estAdjacente(Position autre) {
         if (autre == null) {
             return false;
@@ -35,12 +39,8 @@ public class Position {
     
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
         Position position = (Position) obj;
         return x == position.x && y == position.y;
     }

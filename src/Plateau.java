@@ -1,11 +1,9 @@
-
 public class Plateau {
 
     private final Pion[][] grille;
 
     public Plateau() {
         this.grille = new Pion[3][3];
-        
     }
     
     public boolean estLibre(Position position) {
@@ -44,31 +42,10 @@ public class Plateau {
         validerPosition(position);
         return grille[position.getX()][position.getY()];
     }
-   
-    public boolean estAdjacent(Position pos1, Position pos2) {
-        validerPosition(pos1);
-        validerPosition(pos2);
-        return pos1.estAdjacente(pos2);
-    }
     
-   
     private void validerPosition(Position position) {
         if (position == null) {
             throw new IllegalArgumentException("La position ne peut pas être null");
-        }
-        if (!position.estValide()) {
-            throw new IllegalArgumentException("Position invalide : " + position);
-        }
-    }
-    
-    public void reinitialiser() {
-        for (int x = 0; x < 3; x++) {
-            for (int y = 0; y < 3; y++) {
-                if (grille[x][y] != null) {
-                    grille[x][y].retirerDuPlateau();
-                    grille[x][y] = null;
-                }
-            }
         }
     }
 }
